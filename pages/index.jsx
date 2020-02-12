@@ -5,14 +5,109 @@ import {
   Typography,
   makeStyles,
 } from '@material-ui/core'
-import React from 'react'
+import { Code, Palette, WifiTethering } from '@material-ui/icons'
 import Link from 'next/link'
+import React from 'react'
 
+import CardDivision from './components/CardDivision'
+import CardProfile from './components/CardProfile'
+import CarouselEvent from './components/CarouselEvent'
 import MainHeader from './components/headers'
 
-const useStyles = makeStyles(theme => ({
+const content = {
+  id: {
+    hero: {
+      title: 'Mari belajar dan berbagi\ntentang dunia open source',
+      subtitle:
+        'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et',
+      button: 'Siapakah kami ?',
+    },
+  },
+}
+
+const divisionIcon = {
+  fontSize: 50,
+  color: 'white',
+}
+
+const divisions = [
+  {
+    name: 'Programming',
+    desc:
+      ' Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.',
+    icon: <Code style={divisionIcon} />,
+    iconBackground: 'lightblue',
+  },
+  {
+    name: 'Multimedia',
+    desc:
+      ' Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.',
+    icon: <Palette style={divisionIcon} />,
+    iconBackground: 'lightgreen',
+  },
+  {
+    name: 'Jaringan',
+    desc:
+      ' Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.',
+    icon: <WifiTethering style={divisionIcon} />,
+    iconBackground: 'lightpink',
+  },
+]
+
+const events = [
+  {
+    name: 'Bootcamp',
+    desc:
+      'Ini adalah sebuah kegiatan dimana doscom akan mengadakan suatu event yang bernama doscom univercity atau DU.',
+    date: Date.now().toString(),
+    background: 'lightpink',
+    capacity: 10,
+  },
+  {
+    name: 'Open Source On The School',
+    desc:
+      'Ini adalah sebuah kegiatan dimana doscom akan mengadakan suatu event yang bernama doscom univercity atau DU.',
+    date: Date.now().toString(),
+    background: 'lightpink',
+    capacity: 10,
+  },
+  {
+    name: 'Doscom Univercity',
+    desc:
+      'Ini adalah sebuah kegiatan dimana doscom akan mengadakan suatu event yang bernama doscom univercity atau DU.',
+    date: Date.now().toString(),
+    background: 'lightpink',
+    capacity: 10,
+  },
+  {
+    name: 'Doscom Univercity',
+    desc:
+      'Ini adalah sebuah kegiatan dimana doscom akan mengadakan suatu event yang bernama doscom univercity atau DU.',
+    date: Date.now().toString(),
+    background: 'lightpink',
+    capacity: 10,
+  },
+  {
+    name: 'Release Party',
+    desc:
+      'Ini adalah sebuah kegiatan dimana doscom akan mengadakan suatu event yang bernama doscom univercity atau DU.',
+    date: Date.now().toString(),
+    background: 'lightpink',
+    capacity: 10,
+  },
+]
+
+const lang = 'id'
+
+const useStyles = makeStyles((theme) => ({
   hero: {
     height: '100vh',
+  },
+  heroContentBox: {
+    flexGrow: 1,
+  },
+  heroContent: {
+    height: '100%',
   },
   heroButton: {
     marginTop: '2.5rem',
@@ -23,40 +118,98 @@ const Index = () => {
   const classes = useStyles()
   return (
     <fragment>
-      <MainHeader />
-      <Grid
-        container
-        justify="center"
-        alignItems="center"
-        className={classes.hero}>
+      <Grid container direction="column" className={classes.hero}>
         <Grid item>
-          <Container maxWidth="md">
-            <Typography variant="h3" align="center">
-              Mari belajar, berbagi, dan berkontribusi
-              <br />
-              tentang dunia open source
-            </Typography>
-            <Typography variant="subtitle1" align="center">
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-              erat, sed diam voluptua. At vero eos et accusam et
-            </Typography>
-            <Typography align="center" className={classes.heroButton}>
-              <Link href="about">
-                <Button variant="outlined" color="primary">
-                  Siapakah kami ?
-                </Button>
-              </Link>
-            </Typography>
-          </Container>
+          <MainHeader />
         </Grid>
-      </Grid>
-      <Container maxWidth="lg">
-        <Grid alignItems="center">
-          <Grid item xs={12}>
-            <Typography variant="h4">Kami adalah doscom.</Typography>
+        <Grid item className={classes.heroContentBox}>
+          <Grid
+            container
+            justify="center"
+            alignItems="center"
+            className={classes.heroContent}>
+            <Grid item>
+              <Container maxWidth="md">
+                <Typography variant="h3" align="center">
+                  {content[lang].hero.title}
+                </Typography>
+                <Typography variant="subtitle1" align="center">
+                  {content[lang].hero.subtitle}
+                </Typography>
+                <Typography align="center" className={classes.heroButton}>
+                  <Link href="about">
+                    <Button variant="outlined" color="primary">
+                      {content[lang].hero.button}
+                    </Button>
+                  </Link>
+                </Typography>
+              </Container>
+            </Grid>
           </Grid>
         </Grid>
+      </Grid>
+      <Container>
+        <Grid container direction="row" alignItems="center" spacing={3}>
+          <Grid item xs={12}>
+            <Typography variant="h3">Kami adalah doscom</Typography>
+          </Grid>
+          <Grid item md={7}>
+            <Typography variant="h5" paragraph="true">
+              Dinus Open Source Community
+            </Typography>
+            <Typography variant="subtitle2" gutterBottom="true">
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+              erat, sed diam voluptua. At vero eos et accusam et justo duo
+              dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+              sanctus est Lorem ipsum dolor sit amet.
+            </Typography>
+            <Typography variant="subtitle2">
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+              erat, sed diam voluptua. At vero eos et accusam et justo duo
+              dolores et ea rebum.
+            </Typography>
+            <Button variant="text" color="primary">
+              Lihat kegiatan kami
+            </Button>
+          </Grid>
+          <Grid item md={5}>
+            <Grid container direction="column" spacing={3}>
+              <Grid item>
+                <CardProfile
+                  name="Fahri Firdausillah"
+                  position="Pembimbing"
+                  photo="/img/mentor.jpg"
+                />
+              </Grid>
+              <Grid item>
+                <CardProfile
+                  name="Kun Amrin"
+                  position="Ketua Doscom"
+                  photo="/img/leader.jpg"
+                />
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid container justify="center" alignItems="center" spacing={8}>
+          <Grid item xs={12} style={{ marginBottom: '2rem' }}>
+            <Typography variant="h3">Divisi</Typography>
+          </Grid>
+          {divisions.map((dev) => (
+            <Grid item xs={12} md={4}>
+              <CardDivision
+                name={dev.name}
+                desctiption={dev.desc}
+                icon={dev.icon}
+                iconBackground={dev.iconBackground}
+                xs={3}
+              />
+            </Grid>
+          ))}
+        </Grid>
+        <CarouselEvent events={events} />
       </Container>
     </fragment>
   )
