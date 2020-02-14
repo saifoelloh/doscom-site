@@ -10,6 +10,7 @@ import Link from 'next/link'
 import React from 'react'
 
 import CardDivision from './components/CardDivision'
+import CardGalery from './components/CardGalery'
 import CardProfile from './components/CardProfile'
 import CarouselEvent from './components/CarouselEvent'
 import MainHeader from './components/headers'
@@ -61,7 +62,8 @@ const events = [
       'Ini adalah sebuah kegiatan dimana doscom akan mengadakan suatu event yang bernama doscom univercity atau DU.',
     date: Date.now().toString(),
     background: 'lightpink',
-    capacity: 10,
+    capacity: 50,
+    htm: 50000,
   },
   {
     name: 'Open Source On The School',
@@ -69,7 +71,17 @@ const events = [
       'Ini adalah sebuah kegiatan dimana doscom akan mengadakan suatu event yang bernama doscom univercity atau DU.',
     date: Date.now().toString(),
     background: 'lightpink',
-    capacity: 10,
+    capacity: 75,
+    htm: 0,
+  },
+  {
+    name: 'Software Freedom Day',
+    desc:
+      'Ini adalah sebuah kegiatan dimana doscom akan mengadakan suatu event yang bernama doscom univercity atau DU.',
+    date: Date.now().toString(),
+    background: 'lightpink',
+    capacity: 250,
+    htm: 0,
   },
   {
     name: 'Doscom Univercity',
@@ -77,15 +89,8 @@ const events = [
       'Ini adalah sebuah kegiatan dimana doscom akan mengadakan suatu event yang bernama doscom univercity atau DU.',
     date: Date.now().toString(),
     background: 'lightpink',
-    capacity: 10,
-  },
-  {
-    name: 'Doscom Univercity',
-    desc:
-      'Ini adalah sebuah kegiatan dimana doscom akan mengadakan suatu event yang bernama doscom univercity atau DU.',
-    date: Date.now().toString(),
-    background: 'lightpink',
-    capacity: 10,
+    capacity: 125,
+    htm: 50000,
   },
   {
     name: 'Release Party',
@@ -93,13 +98,26 @@ const events = [
       'Ini adalah sebuah kegiatan dimana doscom akan mengadakan suatu event yang bernama doscom univercity atau DU.',
     date: Date.now().toString(),
     background: 'lightpink',
-    capacity: 10,
+    capacity: 100,
+    htm: 75000,
   },
 ]
 
 const lang = 'id'
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
+  hv100: {
+    minHeight: '100vh',
+  },
+  hv75: {
+    minHeight: '75vh',
+  },
+  hv50: {
+    minHeight: '50vh',
+  },
+  hv25: {
+    minHeight: '25vh',
+  },
   hero: {
     height: '100vh',
   },
@@ -193,11 +211,15 @@ const Index = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid container justify="center" alignItems="center" spacing={8}>
+        <Grid
+          container
+          alignItems=" className={classes.hv50}"
+          spacing={8}
+          className={classes.hv50}>
           <Grid item xs={12} style={{ marginBottom: '2rem' }}>
             <Typography variant="h3">Divisi</Typography>
           </Grid>
-          {divisions.map((dev) => (
+          {divisions.map(dev => (
             <Grid item xs={12} md={4}>
               <CardDivision
                 name={dev.name}
@@ -209,8 +231,50 @@ const Index = () => {
             </Grid>
           ))}
         </Grid>
-        <CarouselEvent events={events} />
       </Container>
+      <Grid
+        container
+        direction="column"
+        justify="space-evenly"
+        className={classes.hv50}
+        style={{ backgroundColor: 'black' }}>
+        <Grid item>
+          <Container>
+            <Typography variant="h3" style={{ color: 'white' }}>
+              Kegiatan
+            </Typography>
+          </Container>
+        </Grid>
+        <Grid item>
+          <Container>
+            <CarouselEvent events={events} />
+          </Container>
+        </Grid>
+      </Grid>
+      <Grid
+        container
+        direction="column"
+        justify="space-evenly"
+        className={classes.hv100}>
+        <Grid item>
+          <Container>
+            <Typography variant="h3">Galeri</Typography>
+          </Container>
+        </Grid>
+        <Grid item>
+          <Container>
+            <Grid container justify="center" alignItems="center" spacing={4}>
+              {[...Array(12).keys()].map(foo => (
+                <Grid item xs={3}>
+                  <Container>
+                    <CardGalery />
+                  </Container>
+                </Grid>
+              ))}
+            </Grid>
+          </Container>
+        </Grid>
+      </Grid>
     </fragment>
   )
 }
