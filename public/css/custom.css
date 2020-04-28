@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+}
+.hv100 {
+  min-height: 100vh;
+}
+.hv75 {
+  min-height: 75vh;
+}
+.hv50 {
+  min-height: 50vh;
+}
+.hv25 {
+  min-height: 25vh;
+}
+.hero {
+  height: 100vh;
+}
+.heroContentBox {
+  flex-grow: 1;
+}
+.heroContent {
+  height: 100%;
+}
+.heroButton {
+  margin-top: 2.5rem;
+}
