@@ -1,4 +1,4 @@
-import { ADD_USER } from "../action-types"
+import { ADD_USER, REMOVE_USER } from "../action-types"
 
 const initialState = {
   username: "",
