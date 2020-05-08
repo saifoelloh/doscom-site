@@ -1,7 +1,7 @@
 import React, { createContext, useReducer } from "react"
 import { BrowserRouter } from "react-router-dom"
 
-import Routes from "./routes.js"
+import { MainRoutes } from "./routes"
 
 const initialState = {
   name: "",
@@ -28,7 +28,7 @@ function App() {
   return (
     <AuthContext.Provider value={[state, dispatch]}>
       <BrowserRouter>
-        <Routes />
+        <MainRoutes />
       </BrowserRouter>
     </AuthContext.Provider>
   )
