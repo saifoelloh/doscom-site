@@ -12,7 +12,7 @@ const MainRoutes = () => {
     <Switch>
       <Route path="/" component={LandingPage} exact />
       <Route path="/auth/login" component={Login} />
-      <PrivateRoute exact path="/dashboard" component={DashboardLayout} />
+      <PrivateRoute path="/dashboard" component={DashboardLayout} />
       <Route path="*" component={NotFound} />
     </Switch>
   )
