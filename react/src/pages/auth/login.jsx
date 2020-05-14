@@ -1,13 +1,6 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useLocation } from "react-router-dom"
-import {
-  Button,
-  Card,
-  CardBody,
-  CardHeader,
-  FormGroup,
-  Input,
-} from "reactstrap"
+import { Button, Card, CardBody, CardHeader, FormGroup, Input } from "reactstrap"
 
 import { AuthContext } from "../../auth-context"
 import { AuthLayout } from "./components"
@@ -19,12 +12,12 @@ const Login = () => {
   const user = useForm({})
   const [loading, setLoading] = useState(false)
   const [auth, dispatch] = useContext(AuthContext)
-  const { from } = location.state || { from: { pathname: "/dashboard" } }
-  console.log({ auth, dispatch })
+  const { from } = location.state || { from: { pathname: "/dashboard/" } }
 
   const onSubmit = (e) => {
     e.preventDefault()
-    dispatch("LOGIN", {
+    dispatch({
+      type: "LOGIN",
       payload: {
         username: user.value["username"],
       },
