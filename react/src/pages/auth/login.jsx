@@ -1,6 +1,15 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useLocation } from "react-router-dom"
-import { Button, Card, CardBody, CardHeader, FormGroup, Input } from "reactstrap"
+import {
+  Button,
+  Card,
+  CardBody,
+  CardHeader,
+  FormGroup,
+  Input,
+  InputGroup,
+  InputGroupAddon,
+} from "reactstrap"
 
 import { AuthContext } from "../../auth-context"
 import { AuthLayout } from "./components"
@@ -11,6 +20,7 @@ const Login = () => {
   const location = useLocation()
   const user = useForm({})
   const [loading, setLoading] = useState(false)
+  const [isShow, setIsShow] = useState(false)
   const [auth, dispatch] = useContext(AuthContext)
   const { from } = location.state || { from: { pathname: "/dashboard/" } }
 
@@ -44,6 +54,7 @@ const Login = () => {
             <form onSubmit={onSubmit}>
               <FormGroup>
                 <Input
+                  required
                   type="text"
                   name="username"
                   placeholder="Username"
@@ -51,12 +62,20 @@ const Login = () => {
                 />
               </FormGroup>
               <FormGroup>
-                <Input
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  onChange={user.changeHandler}
-                />
+                <InputGroup>
+                  <Input
+                    required
+                    name="password"
+                    type={isShow ? "text" : "password"}
+                    placeholder="Password"
+                    onChange={user.changeHandler}
+                  />
+                  <InputGroupAddon addonType="append">
+                    <Button onClick={() => setIsShow(!isShow)} outline>
+                      @
+                    </Button>
+                  </InputGroupAddon>
+                </InputGroup>
               </FormGroup>
               <FormGroup>
                 <Button type="submit" color="primary" block>
