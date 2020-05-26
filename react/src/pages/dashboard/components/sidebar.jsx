@@ -2,15 +2,16 @@ import {
   faFileAlt,
   faTachometerAlt,
   faUsers,
-} from "@fortawesome/free-solid-svg-icons"
-import React from "react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { ListGroup, ListGroupItem } from "reactstrap"
-import { useLocation, Link as RouteLink } from "react-router-dom"
+} from '@fortawesome/free-solid-svg-icons'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { ListGroup, ListGroupItem } from 'reactstrap'
+import { useLocation, Link as RouteLink } from 'react-router-dom'
 
-const MenuItem = ({ menu }) => {
+const MenuItem = (props) => {
   const location = useLocation()
-  const { icon, title, url } = menu
+  const { icon, title, url } = props
   return (
     <ListGroupItem
       tag={RouteLink}
@@ -18,7 +19,7 @@ const MenuItem = ({ menu }) => {
       active={location.pathname === url}
       action
     >
-      <FontAwesomeIcon icon={icon} style={{ margin: "0 .5rem" }} />
+      <FontAwesomeIcon icon={icon} style={{ margin: '0 .5rem' }} />
       {title}
     </ListGroupItem>
   )
@@ -27,18 +28,18 @@ const MenuItem = ({ menu }) => {
 const DashboardSidebar = () => {
   const menus = [
     {
-      title: "Dashboard",
-      url: "/dashboard/",
+      title: 'Dashboard',
+      url: '/dashboard/',
       icon: faTachometerAlt,
     },
     {
-      title: "User",
-      url: "/dashboard/user",
+      title: 'User',
+      url: '/dashboard/user',
       icon: faUsers,
     },
     {
-      title: "Post",
-      url: "/dashboard/post",
+      title: 'Post',
+      url: '/dashboard/post',
       icon: faFileAlt,
     },
   ]

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState } from 'react'
 import {
   Collapse,
   Nav,
@@ -6,9 +6,9 @@ import {
   NavLink,
   Navbar,
   NavbarToggler,
-} from "reactstrap"
+} from 'reactstrap'
 
-const DashboardHeader = (props) => {
+const DashboardHeader = () => {
   const [isOpen, setIsOpen] = useState(false)
   const toggle = () => setIsOpen(!isOpen)
 
