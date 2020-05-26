@@ -1,10 +1,10 @@
-import React from "react"
-import { Card, Col, Container, Row } from "reactstrap"
+import React from 'react'
+import { Card, Col, Container, Row } from 'reactstrap'
 
-import DashboardBeadcrumb from "./breadcrumb.jsx"
-import DashboardRoutes from "../../../routes/dashboard.js"
-import DashboardHeader from "./header.jsx"
-import DashboardSidebar from "./sidebar.jsx"
+import DashboardBeadcrumb from './breadcrumb.jsx'
+import DashboardRoutes from '../../../routes/dashboard.js'
+import DashboardHeader from './header.jsx'
+import DashboardSidebar from './sidebar.jsx'
 
 const DashboardLayout = () => {
   return (
