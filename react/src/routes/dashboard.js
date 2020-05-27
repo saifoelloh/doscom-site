@@ -1,8 +1,8 @@
-import React from "react"
-import { Switch, useRouteMatch } from "react-router-dom"
+import React from 'react'
+import { Switch, useRouteMatch } from 'react-router-dom'
 
-import { Dashboard } from "../pages/dashboard"
-import PrivateRoute from "../pages/auth/components/private-route.js"
+import { Dashboard } from '../pages/dashboard'
+import PrivateRoute from '../pages/auth/components/private-route'
 
 const DashboardRoutes = () => {
   const { path } = useRouteMatch()

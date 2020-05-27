@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from "react"
-import { useHistory, useLocation } from "react-router-dom"
+import React, { useContext, useEffect, useState } from 'react'
+import { useHistory, useLocation } from 'react-router-dom'
 import {
   Button,
   Card,
@@ -9,11 +9,11 @@ import {
   Input,
   InputGroup,
   InputGroupAddon,
-} from "reactstrap"
+} from 'reactstrap'
 
-import { AuthContext } from "../../auth-context"
-import { AuthLayout } from "./components"
-import { useForm } from "../../helper/hooks"
+import { AuthContext } from '../../auth-context'
+import { AuthLayout } from './components'
+import { useForm } from '../../helper/hooks'
 
 const Login = () => {
   const history = useHistory()
@@ -22,31 +22,35 @@ const Login = () => {
   const [loading, setLoading] = useState(false)
   const [isShow, setIsShow] = useState(false)
   const [auth, dispatch] = useContext(AuthContext)
-  const { from } = location.state || { from: { pathname: "/dashboard/" } }
+  const { from } = location.state || { from: { pathname: '/dashboard/' } }
 
   const onSubmit = (e) => {
     e.preventDefault()
     dispatch({
-      type: "LOGIN",
+      type: 'LOGIN',
       payload: {
-        username: user.value["username"],
+        username: user.value.username,
       },
     })
     history.replace(from)
   }
 
-  useEffect(() => {
+  const checkAuthenticate = () => {
     setLoading(true)
     if (auth.isAuthenticate) {
       history.replace(from)
     }
     setLoading(false)
-  }, [])
+  }
+
+  useEffect(() => {
+    checkAuthenticate()
+  })
 
   return (
     <AuthLayout>
       {loading ? (
-        "loading"
+        'loading'
       ) : (
         <Card>
           <CardHeader>Login Form</CardHeader>
@@ -66,7 +70,7 @@ const Login = () => {
                   <Input
                     required
                     name="password"
-                    type={isShow ? "text" : "password"}
+                    type={isShow ? 'text' : 'password'}
                     placeholder="Password"
                     onChange={user.changeHandler}
                   />

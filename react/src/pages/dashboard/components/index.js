@@ -1,3 +1,3 @@
-import DashboardLayout from "./layout"
+import DashboardLayout from './layout'
 
 export { DashboardLayout }
