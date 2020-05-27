@@ -25,6 +25,12 @@ const MenuItem = (props) => {
   )
 }
 
+MenuItem.propTypes = {
+  icon: PropTypes.object.isRequired,
+  title: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+}
+
 const DashboardSidebar = () => {
   const menus = [
     {
@@ -47,7 +53,7 @@ const DashboardSidebar = () => {
   return (
     <ListGroup>
       {menus.map((menu, id) => (
-        <MenuItem key={id} menu={menu} />
+        <MenuItem key={id} {...menu} />
       ))}
     </ListGroup>
   )
