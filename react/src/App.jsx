@@ -1,8 +1,8 @@
-import React from "react"
-import { BrowserRouter } from "react-router-dom"
+import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
 
-import { AuthProvider } from "./auth-context.js"
-import { MainRoutes } from "./routes"
+import { AuthProvider } from './auth-context.jsx'
+import { MainRoutes } from './routes'
 
 function App() {
   return (
