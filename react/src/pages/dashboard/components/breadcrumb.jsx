@@ -14,8 +14,12 @@ const DashboardBeadcrumb = () => {
         const isActive = id === paths.length - 1
         const url =
           id === 0 ? `/${path}/` : `/${paths.splice(0, id).join('/')}/${path}`
-        return (
-          <BreadcrumbItem key={id} tag={RouteLink} to={url} active={isActive}>
+        return isActive ? (
+          <BreadcrumbItem key={id} active={isActive}>
+            {path}
+          </BreadcrumbItem>
+        ) : (
+          <BreadcrumbItem key={id} tag={RouteLink} to={url}>
             {path}
           </BreadcrumbItem>
         )
