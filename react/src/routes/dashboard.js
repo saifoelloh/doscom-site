@@ -2,6 +2,7 @@ import React from 'react'
 import { Switch, useRouteMatch } from 'react-router-dom'
 
 import { Dashboard } from '../pages/dashboard'
+import { MemberHome } from '../pages/dashboard/member'
 import PrivateRoute from '../pages/auth/components/private-route'
 
 const DashboardRoutes = () => {
@@ -14,7 +15,7 @@ const DashboardRoutes = () => {
     },
     {
       path: `${path}/user`,
-      component: () => <h1>user</h1>,
+      component: () => <MemberHome />,
       exact: true,
     },
     {
