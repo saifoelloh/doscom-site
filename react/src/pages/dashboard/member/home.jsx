@@ -38,8 +38,9 @@ const MemberHome = () => {
             <tr>
               <td>No</td>
               <td>Name</td>
+              <td>Gender</td>
               <td>Email</td>
-              <td>Job Desk</td>
+              <td>Grad Year</td>
               <td>Actions</td>
             </tr>
           </thead>
@@ -49,8 +50,9 @@ const MemberHome = () => {
                 <tr key={index}>
                   <td>{index + 1}</td>
                   <td>Foo Bar</td>
+                  <td>Male</td>
                   <td>foo@bar.com</td>
-                  <td>Admin IT</td>
+                  <td>2014</td>
                   <td>
                     <ButtonGroup>
                       <Button color="success" size="sm">
